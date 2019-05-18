@@ -18,7 +18,7 @@ namespace NOC2
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {//teszt
             string syskey = textBox1.Text;
             string sysvalue = textBox2.Text;
 
