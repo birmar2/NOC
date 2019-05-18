@@ -72,13 +72,14 @@
             // 
             // mainSystem
             // 
+            this.mainSystem.BackColor = System.Drawing.SystemColors.GrayText;
             this.mainSystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemUsers,
             this.systemGroups,
             this.menusToolStripMenuItem,
             this.serversToolStripMenuItem,
             this.systemparametersToolStripMenuItem});
-            this.mainSystem.ForeColor = System.Drawing.SystemColors.Control;
+            this.mainSystem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mainSystem.Name = "mainSystem";
             this.mainSystem.Size = new System.Drawing.Size(80, 23);
             this.mainSystem.Text = "Rendszer";
@@ -269,7 +270,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
-            this.Text = "Form2";
+            this.Text = "NOC";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
