@@ -1,0 +1,52 @@
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\bin\Debug\NOC2.exe
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\bin\Debug\NOC2.exe.config
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\bin\Debug\MySql.Data.dll
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\bin\Debug\Google.Protobuf.dll
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\bin\Debug\MySql.Data.xml
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.csprojAssemblyReference.cache
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.Main.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.Properties.Resources.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.csproj.GenerateResource.cache
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.csproj.CoreCompileInputs.cache
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.csproj.CopyComplete
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.exe
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.pdb
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\bin\Debug\NOC2.pdb
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.userList.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.UpdateUser.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.GroupList.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.InsertUser.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.MenuList.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.UpdateGroup.resources
+C:\Users\Biró Marcell\source\repos\NOC2\NOC2\obj\Debug\NOC2.InsertMenu.resources
+C:\Suli\NOCDUMP\NOC2\bin\Debug\NOC2.exe.config
+C:\Suli\NOCDUMP\NOC2\bin\Debug\NOC2.exe
+C:\Suli\NOCDUMP\NOC2\bin\Debug\NOC2.pdb
+C:\Suli\NOCDUMP\NOC2\bin\Debug\MySql.Data.dll
+C:\Suli\NOCDUMP\NOC2\bin\Debug\Google.Protobuf.dll
+C:\Suli\NOCDUMP\NOC2\bin\Debug\MySql.Data.xml
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.csprojAssemblyReference.cache
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.GroupList.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.InsertMenu.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.InsertUser.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.MenuList.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.ServerList.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.UpdateGroup.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.UpdateUser.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.Main.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.Properties.Resources.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.userList.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.csproj.GenerateResource.cache
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.csproj.CoreCompileInputs.cache
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.csproj.CopyComplete
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.exe
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.pdb
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.UpdateServer.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.ServertypeList.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.UpdateServertype.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.InsertServertype.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.InsertServer.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.InsertGroup.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.Login.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.SystemParamList.resources
+C:\Suli\NOCDUMP\NOC2\obj\Debug\NOC2.UpdateSystemParam.resources
