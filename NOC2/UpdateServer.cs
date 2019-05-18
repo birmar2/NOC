@@ -13,7 +13,6 @@ namespace NOC2
     public partial class UpdateServer : Form
     {
         public ServerList server { get; set; }
-        Connection db = new Connection();
         public string serverid;
         public int selectedTypeIndex = 0;
         public UpdateServer()
@@ -24,7 +23,7 @@ namespace NOC2
         public List<Servertype> GetServertypes(int serverTypeId)
         {
             string getServertypesQuery = "SELECT * FROM servertypes";
-            var typeTable = db.GetData(getServertypesQuery);
+            var typeTable = Framework.db.GetData(getServertypesQuery);
             DataView typeView = new DataView(typeTable);
 
             List<Servertype> items = new List<Servertype>();
@@ -42,7 +41,7 @@ namespace NOC2
         {
             serverid = Convert.ToString(server.serverId);
             string getServersQuery = "SELECT * FROM servers WHERE serverid = " + serverid;
-            var serverTable = db.GetData(getServersQuery);
+            var serverTable = Framework.db.GetData(getServersQuery);
             DataView serverView = new DataView(serverTable);
             int countRows = Int32.Parse(serverView.Count.ToString());
 
@@ -91,7 +90,7 @@ namespace NOC2
                 "`servercpu` = '" + serverCpu + "', " +
                 "`serveropsystem` = '" + serverOpsystem + "' " +
                 "WHERE `serverid` =" + serverid;
-            db.RunQuery(updateQuery);
+            Framework.db.RunQuery(updateQuery);
             MessageBox.Show("Azonosítási szerver frissítve!");
             this.Close();
         }

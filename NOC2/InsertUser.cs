@@ -22,7 +22,7 @@ namespace NOC2
         public List<Group> GetGroups()
         {
             string getGroupsQuery = "SELECT * FROM groups";
-            var groupTable = db.GetData(getGroupsQuery);
+            var groupTable = Framework.db.GetData(getGroupsQuery);
             DataView groupView = new DataView(groupTable);
 
             List<Group> items = new List<Group>();
@@ -38,7 +38,7 @@ namespace NOC2
         public List<Server> GetServers()
         {
             string getServersQuery = "SELECT * FROM servers";
-            var serverTable = db.GetData(getServersQuery);
+            var serverTable = Framework.db.GetData(getServersQuery);
             DataView serverView = new DataView(serverTable);
 
             List<Server> items = new List<Server>();
@@ -72,7 +72,7 @@ namespace NOC2
                 "(`username`,`password`,`group_id`,`server_id`) " +
                 "VALUES " +
                 "('"+ username + "','"+ Hash(password) + "','"+ group_id + "','"+ server_id + "')";
-            db.RunQuery(insertQuery);
+            Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Felhasználó feltöltve!");
             this.Close();
         }

@@ -13,7 +13,6 @@ namespace NOC2
     public partial class UpdateGroup : Form
     {
         public GroupList group { get; set; }
-        Connection db = new Connection();
         TreeNode parentNode = null;
         public string groupid;
         public string selectedMenu;
@@ -26,7 +25,7 @@ namespace NOC2
         private Array getMenuIds()
         {
             string getMenusQuery = "SELECT * FROM groupsmenus WHERE group_id = " + group.groupId;
-            var data = db.GetData(getMenusQuery);
+            var data = Framework.db.GetData(getMenusQuery);
             DataView view = new DataView(data);
             int i = 0;
             int countRows = Int32.Parse(view.Count.ToString());
@@ -43,7 +42,7 @@ namespace NOC2
         {
             TreeNode childNode;
             string getMenusQuery = "SELECT * FROM mainmenus WHERE parentId = " + parentId;
-            var data = db.GetData(getMenusQuery);
+            var data = Framework.db.GetData(getMenusQuery);
             DataView view = new DataView(data);
             foreach (DataRowView row in view)
             {
@@ -78,7 +77,7 @@ namespace NOC2
         {
             groupid = Convert.ToString(group.groupId);
             string getUsersQuery = "SELECT * FROM groups WHERE groupid = " + groupid;
-            var groupTable = db.GetData(getUsersQuery);
+            var groupTable = Framework.db.GetData(getUsersQuery);
             DataView groupView = new DataView(groupTable);
             int countRows = Int32.Parse(groupView.Count.ToString());
 
@@ -97,15 +96,15 @@ namespace NOC2
             string groupName = textBox1.Text;
 
             string updateQuery = "UPDATE `groups` SET `groupName` = '" + groupName + "' WHERE `groupid` =" + groupid;
-            db.RunQuery(updateQuery);
+            Framework.db.RunQuery(updateQuery);
 
             string insertQuery = "";
             string deleteQuery = "DELETE FROM groupsmenus WHERE `group_id` =" + groupid;
-            db.RunQuery(deleteQuery);
+            Framework.db.RunQuery(deleteQuery);
             foreach (string menu_id in selectedMenus)
             {
                 insertQuery = "INSERT INTO groupsmenus (`group_id`,`menu_id`) VALUES ('"+ groupid + "','"+ menu_id + "')";
-                db.RunQuery(insertQuery);
+                Framework.db.RunQuery(insertQuery);
             }
 
             MessageBox.Show("Jogosultsági csoport frissítve!");

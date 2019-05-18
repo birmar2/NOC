@@ -12,7 +12,6 @@ namespace NOC2
 {
     public partial class InsertGroup : Form
     {
-        Connection db = new Connection();
         TreeNode parentNode = null;
         public string groupid;
         public string selectedMenu;
@@ -26,7 +25,7 @@ namespace NOC2
         {
             TreeNode childNode;
             string getMenusQuery = "SELECT * FROM mainmenus WHERE parentId = " + parentId;
-            var data = db.GetData(getMenusQuery);
+            var data = Framework.db.GetData(getMenusQuery);
             DataView view = new DataView(data);
             foreach (DataRowView row in view)
             {
@@ -89,10 +88,10 @@ namespace NOC2
             string groupName = textBox1.Text;
 
             string insertQuery = "INSERT INTO `groups` (`groupName`) VALUES ('"+ groupName + "')";
-            db.RunQuery(insertQuery);
+            Framework.db.RunQuery(insertQuery);
 
             string getGroupsQuery = "SELECT * FROM groups WHERE groupName = '" + groupName + "' ORDER BY groupid DESC";
-            var groupTable = db.GetData(getGroupsQuery);
+            var groupTable = Framework.db.GetData(getGroupsQuery);
             DataView groupView = new DataView(groupTable);
             int countRows = Int32.Parse(groupView.Count.ToString());
 
@@ -102,7 +101,7 @@ namespace NOC2
             foreach (string menu_id in selectedMenus)
             {
                 insertQueryJoin = "INSERT INTO groupsmenus (`group_id`,`menu_id`) VALUES ('" + groupid + "','" + menu_id + "')";
-                db.RunQuery(insertQueryJoin);
+                Framework.db.RunQuery(insertQueryJoin);
             }
 
             MessageBox.Show("Jogosultsági csoport feltöltve!");

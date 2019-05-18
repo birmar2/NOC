@@ -12,7 +12,6 @@ namespace NOC2
 {
     public partial class InsertServer : Form
     {
-        Connection db = new Connection();
         public InsertServer()
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace NOC2
         public List<Servertype> GetServertypes()
         {
             string getServertypesQuery = "SELECT * FROM servertypes";
-            var typeTable = db.GetData(getServertypesQuery);
+            var typeTable = Framework.db.GetData(getServertypesQuery);
             DataView typeView = new DataView(typeTable);
 
             List<Servertype> items = new List<Servertype>();
@@ -58,7 +57,7 @@ namespace NOC2
                 "(`servername`,`servertype_id`,`serveractive`,`servermemory`,`serverdisk`,`servercpu`,`serveropsystem`) " +
                 "VALUES " +
                 "('"+ serverName + "','"+ servertype_id + "','"+ serverActive + "','"+ serverMemory + "','"+ serverDisk + "','"+ serverCpu + "','"+ serverOpsystem + "') ";
-            db.RunQuery(insertQuery);
+            Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Azonosítási szerver feltöltve!");
             this.Close();
         }

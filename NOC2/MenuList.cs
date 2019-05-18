@@ -12,7 +12,6 @@ namespace NOC2
 {
     public partial class MenuList : Form
     {
-        Connection db = new Connection();
         TreeNode parentNode = null;
         int selectedMenuId = 0;
         public int sMenuId { get; set; }
@@ -26,7 +25,7 @@ namespace NOC2
         {
             TreeNode childNode;
             string getMenusQuery = "SELECT * FROM mainmenus WHERE parentId = "+ parentId;
-            var data = db.GetData(getMenusQuery);
+            var data = Framework.db.GetData(getMenusQuery);
             DataView view = new DataView(data);
             foreach (DataRowView row in view)
             {
@@ -72,7 +71,7 @@ namespace NOC2
             {
                 treeView1.SelectedNode.Text = textBox1.Text;
                 string updateQuery = "UPDATE `mainmenus` SET `menuName` = '" + textBox1.Text + "' WHERE `menuId` =" + selectedMenuId.ToString();
-                db.RunQuery(updateQuery);
+                Framework.db.RunQuery(updateQuery);
                 MessageBox.Show("Menürendszer frissítve!");
             }
             
@@ -95,7 +94,7 @@ namespace NOC2
             {
                 //MessageBox.Show(user_id);
                 string deleteQuery = "DELETE FROM `mainmenus` WHERE `menuId` = " + selectedMenuId;
-                db.RunQuery(deleteQuery);
+                Framework.db.RunQuery(deleteQuery);
                 MessageBox.Show("Menü törölve!");
                 treeView1.SelectedNode.Remove();
             }

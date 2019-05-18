@@ -13,7 +13,6 @@ namespace NOC2
     public partial class UpdateUser : Form
     {
         public userList user { get; set; }
-        Connection db = new Connection();
         public string userid;
         public int selectedGroupIndex = 0;
         public int selectedServerIndex = 0;
@@ -25,7 +24,7 @@ namespace NOC2
         public List<Group> GetGroups(int groupId)
         {
             string getGroupsQuery = "SELECT * FROM groups";
-            var groupTable = db.GetData(getGroupsQuery);
+            var groupTable = Framework.db.GetData(getGroupsQuery);
             DataView groupView = new DataView(groupTable);
 
             List<Group> items = new List<Group>();
@@ -42,7 +41,7 @@ namespace NOC2
         public List<Server> GetServers(int serverId)
         {
             string getServersQuery = "SELECT * FROM servers";
-            var serverTable = db.GetData(getServersQuery);
+            var serverTable = Framework.db.GetData(getServersQuery);
             DataView serverView = new DataView(serverTable);
 
             List<Server> items = new List<Server>();
@@ -60,7 +59,7 @@ namespace NOC2
         {
             userid = Convert.ToString(user.userId);
             string getUsersQuery = "SELECT * FROM users WHERE userid = " + userid;
-            var userTable = db.GetData(getUsersQuery);
+            var userTable = Framework.db.GetData(getUsersQuery);
             DataView userView = new DataView(userTable);
             int countRows = Int32.Parse(userView.Count.ToString());
 
@@ -97,7 +96,7 @@ namespace NOC2
             string server_id = selectedServer.Value;
 
             string updateQuery = "UPDATE `users` SET `username` = '" + username+ "', `group_id` = '" + group_id+ "', `server_id` = '" + server_id+ "' WHERE `userid` =" + userid;
-            db.RunQuery(updateQuery);
+            Framework.db.RunQuery(updateQuery);
             MessageBox.Show("Felhasználó frissítve!");
             this.Close();
             /*Main myForm = new Main();

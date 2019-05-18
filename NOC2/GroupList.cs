@@ -42,7 +42,7 @@ namespace NOC2
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-            MessageBox.Show(Convert.ToString(e.ColumnIndex));
+            //MessageBox.Show(Convert.ToString(e.ColumnIndex));
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 string user_id = senderGrid.CurrentRow.Cells["Id"].Value.ToString();

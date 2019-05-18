@@ -13,7 +13,6 @@ namespace NOC2
     public partial class ServerList : Form
     {
         public int serverId { get; set; }
-        Connection db = new Connection();
         public ServerList()
         {
             InitializeComponent();
@@ -22,7 +21,7 @@ namespace NOC2
         private void ServerList_Load(object sender, EventArgs e)
         {
             string getServersQuery = "SELECT serverid as `Id`, servername as `Nev`, servertypename as `Tipusa`, servermemory as `Memoria`, serverdisk as `Hattertar`, servercpu as `CPU`,serveropsystem as `Op. rendszer`  FROM servers,servertypes WHERE servers.servertype_id = servertypes.servertypeid";
-            var data = db.GetData(getServersQuery);
+            var data = Framework.db.GetData(getServersQuery);
             dataGridView1.DataSource = data;
 
             DataGridViewButtonColumn dltbuttonColumn = new DataGridViewButtonColumn();
@@ -54,7 +53,7 @@ namespace NOC2
                     {
                         //MessageBox.Show(user_id);
                         string deleteQuery = "DELETE FROM `servers` WHERE `serverid` = " + server_id;
-                        db.RunQuery(deleteQuery);
+                        Framework.db.RunQuery(deleteQuery);
                         MessageBox.Show("Azonosítási szerver törölve!");
                     }
                 }

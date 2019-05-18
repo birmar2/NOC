@@ -17,7 +17,6 @@ namespace NOC2
         public userList()
         {
             InitializeComponent();
-            MessageBox.Show(Framework.MyUserId.ToString());
         }
 
         private void userList_Load(object sender, EventArgs e)

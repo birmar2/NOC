@@ -50,6 +50,10 @@ namespace NOC2
                 frm.Closed += (s, args) => this.Close();
                 frm.Show();
             }
+            else
+            {
+                MessageBox.Show("Hibás felhasználónév és/vagy jelszó!");
+            }
         }
     }
 }

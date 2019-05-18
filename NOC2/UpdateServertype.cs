@@ -13,7 +13,6 @@ namespace NOC2
     public partial class UpdateServertype : Form
     {
         public ServertypeList servertype { get; set; }
-        Connection db = new Connection();
         public string servertypeid;
         public UpdateServertype()
         {
@@ -24,7 +23,7 @@ namespace NOC2
         {
             servertypeid = Convert.ToString(servertype.servertypeId);
             string getServersQuery = "SELECT * FROM servertypes WHERE servertypeid = " + servertypeid;
-            var serverTable = db.GetData(getServersQuery);
+            var serverTable = Framework.db.GetData(getServersQuery);
             DataView serverView = new DataView(serverTable);
             int countRows = Int32.Parse(serverView.Count.ToString());
 
@@ -38,7 +37,7 @@ namespace NOC2
         {
             string servertypename = textBox1.Text;
             string updateQuery = "UPDATE `servertypes` SET `servertypename` = '" + servertypename + "' WHERE `servertypeid` =" + servertypeid;
-            db.RunQuery(updateQuery);
+            Framework.db.RunQuery(updateQuery);
             MessageBox.Show("Szervertípus frissítve!");
             this.Close();
         }

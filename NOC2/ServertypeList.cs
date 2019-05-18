@@ -13,7 +13,6 @@ namespace NOC2
     public partial class ServertypeList : Form
     {
         public int servertypeId { get; set; }
-        Connection db = new Connection();
         public ServertypeList()
         {
             InitializeComponent();
@@ -22,7 +21,7 @@ namespace NOC2
         private void ServertypeList_Load(object sender, EventArgs e)
         {
             string getServersQuery = "SELECT servertypeid as `Id`, servertypename as `Tipus` FROM servertypes";
-            var data = db.GetData(getServersQuery);
+            var data = Framework.db.GetData(getServersQuery);
             dataGridView1.DataSource = data;
 
             DataGridViewButtonColumn dltbuttonColumn = new DataGridViewButtonColumn();
@@ -54,7 +53,7 @@ namespace NOC2
                     {
                         //MessageBox.Show(user_id);
                         string deleteQuery = "DELETE FROM `servertypes` WHERE `servertypeid` = " + servertype_id;
-                        db.RunQuery(deleteQuery);
+                        Framework.db.RunQuery(deleteQuery);
                         MessageBox.Show("Szervertípus törölve!");
                     }
                 }

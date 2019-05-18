@@ -12,7 +12,6 @@ namespace NOC2
 {
     public partial class InsertServertype : Form
     {
-        Connection db = new Connection();
         public InsertServertype()
         {
             InitializeComponent();
@@ -22,7 +21,7 @@ namespace NOC2
         {
             string servertypename = textBox1.Text;
             string insertQuery = "INSERT INTO servertypes (`servertypename`) VALUES ('"+ servertypename + "')";
-            db.RunQuery(insertQuery);
+            Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Szervertípus feltöltve!");
             this.Close();
         }
