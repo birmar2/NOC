@@ -47,6 +47,7 @@ namespace NOC2
                 Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres bejelentkezés"), Framework.MyUserId);
                 this.Hide();
                 var frm = new Main();
+                frm.TopLevel = true;
                 frm.Closed += (s, args) => this.Close();
                 frm.Show();
             }

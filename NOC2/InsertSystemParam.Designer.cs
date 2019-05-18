@@ -101,6 +101,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InsertSystemParam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 

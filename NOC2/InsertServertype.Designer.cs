@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InsertServertype";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InsertServertype";
             this.ResumeLayout(false);
             this.PerformLayout();

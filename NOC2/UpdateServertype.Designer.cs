@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateServertype";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateServertype";
             this.Load += new System.EventHandler(this.UpdateServertype_Load);
             this.ResumeLayout(false);

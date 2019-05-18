@@ -102,6 +102,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateSystemParam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateSystemParam";
             this.Load += new System.EventHandler(this.UpdateSystemParam_Load);
             this.ResumeLayout(false);

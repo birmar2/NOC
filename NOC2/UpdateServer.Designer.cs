@@ -216,6 +216,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateServer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateServer";
             this.Load += new System.EventHandler(this.UpdateServer_Load);
             this.ResumeLayout(false);

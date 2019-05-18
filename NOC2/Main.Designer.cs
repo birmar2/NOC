@@ -270,6 +270,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NOC";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);

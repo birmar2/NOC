@@ -116,6 +116,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InsertGroup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InsertGroup";
             this.Load += new System.EventHandler(this.InsertGroup_Load);
             this.ResumeLayout(false);

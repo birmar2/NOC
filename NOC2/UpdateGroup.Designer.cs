@@ -115,6 +115,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateGroup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateGroup";
             this.Load += new System.EventHandler(this.UpdateGroup_Load);
             this.ResumeLayout(false);

@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InsertMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InsertMenu";
             this.Load += new System.EventHandler(this.InsertMenu_Load);
             this.ResumeLayout(false);
