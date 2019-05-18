@@ -172,5 +172,11 @@ namespace NOC2
             panel1.Controls.Add(myForm);
             myForm.Show();
         }
+
+        private void newToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            InsertSystemParam form = new InsertSystemParam();
+            form.Show();
+        }
     }
 }

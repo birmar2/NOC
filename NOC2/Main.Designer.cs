@@ -46,13 +46,13 @@
             this.servertypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemparametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.systemparametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,7 +92,7 @@
             this.userList,
             this.userNew});
             this.systemUsers.Name = "systemUsers";
-            this.systemUsers.Size = new System.Drawing.Size(125, 24);
+            this.systemUsers.Size = new System.Drawing.Size(198, 24);
             this.systemUsers.Text = "Users";
             this.systemUsers.Visible = false;
             this.systemUsers.Click += new System.EventHandler(this.aSaToolStripMenuItem_Click);
@@ -119,7 +119,7 @@
             this.GroupList,
             this.groupNew});
             this.systemGroups.Name = "systemGroups";
-            this.systemGroups.Size = new System.Drawing.Size(125, 24);
+            this.systemGroups.Size = new System.Drawing.Size(198, 24);
             this.systemGroups.Text = "Groups";
             this.systemGroups.Visible = false;
             // 
@@ -145,7 +145,7 @@
             this.listToolStripMenuItem,
             this.newToolStripMenuItem});
             this.menusToolStripMenuItem.Name = "menusToolStripMenuItem";
-            this.menusToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.menusToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.menusToolStripMenuItem.Text = "Menus";
             // 
             // listToolStripMenuItem
@@ -168,7 +168,7 @@
             this.newToolStripMenuItem1,
             this.servertypesToolStripMenuItem});
             this.serversToolStripMenuItem.Name = "serversToolStripMenuItem";
-            this.serversToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.serversToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.serversToolStripMenuItem.Text = "Servers";
             // 
             // listToolStripMenuItem1
@@ -208,6 +208,29 @@
             this.newToolStripMenuItem2.Text = "New";
             this.newToolStripMenuItem2.Click += new System.EventHandler(this.newToolStripMenuItem2_Click);
             // 
+            // systemparametersToolStripMenuItem
+            // 
+            this.systemparametersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listToolStripMenuItem3,
+            this.newToolStripMenuItem3});
+            this.systemparametersToolStripMenuItem.Name = "systemparametersToolStripMenuItem";
+            this.systemparametersToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.systemparametersToolStripMenuItem.Text = "Systemparameters";
+            // 
+            // listToolStripMenuItem3
+            // 
+            this.listToolStripMenuItem3.Name = "listToolStripMenuItem3";
+            this.listToolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
+            this.listToolStripMenuItem3.Text = "List";
+            this.listToolStripMenuItem3.Click += new System.EventHandler(this.listToolStripMenuItem3_Click);
+            // 
+            // newToolStripMenuItem3
+            // 
+            this.newToolStripMenuItem3.Name = "newToolStripMenuItem3";
+            this.newToolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
+            this.newToolStripMenuItem3.Text = "New";
+            this.newToolStripMenuItem3.Click += new System.EventHandler(this.newToolStripMenuItem3_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(178, 38);
@@ -242,28 +265,6 @@
             this.label1.Size = new System.Drawing.Size(156, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bejelentkezve, mint {username}";
-            // 
-            // systemparametersToolStripMenuItem
-            // 
-            this.systemparametersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listToolStripMenuItem3,
-            this.newToolStripMenuItem3});
-            this.systemparametersToolStripMenuItem.Name = "systemparametersToolStripMenuItem";
-            this.systemparametersToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
-            this.systemparametersToolStripMenuItem.Text = "Systemparameters";
-            // 
-            // listToolStripMenuItem3
-            // 
-            this.listToolStripMenuItem3.Name = "listToolStripMenuItem3";
-            this.listToolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
-            this.listToolStripMenuItem3.Text = "List";
-            this.listToolStripMenuItem3.Click += new System.EventHandler(this.listToolStripMenuItem3_Click);
-            // 
-            // newToolStripMenuItem3
-            // 
-            this.newToolStripMenuItem3.Name = "newToolStripMenuItem3";
-            this.newToolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
-            this.newToolStripMenuItem3.Text = "New";
             // 
             // Main
             // 

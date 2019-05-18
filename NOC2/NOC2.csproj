@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colors.cs" />
+    <Compile Include="InsertSystemParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertSystemParam.Designer.cs">
+      <DependentUpon>InsertSystemParam.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogService.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="GroupList.cs">
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertServertype.resx">
       <DependentUpon>InsertServertype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertSystemParam.resx">
+      <DependentUpon>InsertSystemParam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InsertUser.resx">
       <DependentUpon>InsertUser.cs</DependentUpon>
