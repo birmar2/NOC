@@ -1,29 +1,28 @@
 NOC
-Az sql fájlt importálni szükséges egy mysql szerverre.
-Majd a szerver adatait szükséges megadni a Connection osztály konstruktorában:
-server   = "hosztnév";
-database = "adatbázisnév";
-user     = "felhasználó";
-password = "jelszó";
+Az sql fÃ¡jlt importÃ¡lni szÃ¼ksÃ©ges egy mysql szerverre.
+Majd a szerver adatait szÃ¼ksÃ©ges megadni a Connection osztÃ¡ly konstruktorÃ¡ban:
+server   = "hosztnÃ©v";
+database = "adatbÃ¡zisnÃ©v";
+user     = "felhasznÃ¡lÃ³";
+password = "jelszÃ³";
 
-Teszteléshez user:
+TesztelÃ©shez user:
 username:admin
 password:admin
 
-Rendszerváltozók hívása:
-pl.: Button háttérszínének hívása: Framework.Systemparam("gombHatterszin")
+RendszervÃ¡ltozÃ³k hÃ­vÃ¡sa:
+pl.: Button hÃ¡ttÃ©rszÃ­nÃ©nek hÃ­vÃ¡sa: Framework.Systemparam("gombHatterszin")
 
 Log:
-insertLog metódust kell meghívni hozzá 3 paraméterrel:
-Saját UserId, MûveletId (lásd lejjebb), FelhasználtRekordId
-pl.:Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres bejelentkezés"), Framework.MyUserId);
+insertLog metÃ³dust kell meghÃ­vni hozzÃ¡ 3 paramÃ©terrel:
+SajÃ¡t UserId, MÅ±veletId (lÃ¡sd lejjebb), FelhasznÃ¡ltRekordId
+pl.:Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres bejelentkezÃ©s"), Framework.MyUserId);
 
-MûveletId lekérése:
-Operation metódusnak kell átadni paraméterként a mûvelet nevét
-pl.:Framework.Operation("Sikeres bejelentkezés")
+MÅ±veletId lekÃ©rÃ©se:
+Operation metÃ³dusnak kell Ã¡tadni paramÃ©terkÃ©nt a mÅ±velet nevÃ©t
+pl.:Framework.Operation("Sikeres bejelentkezÃ©s")
 
-Ami még hátra van:
--log bekötése az összes funckióhoz. Egyelõre a loginba van csak
--még nincs lekezelve, hogy a formok input mezõit ne lehessen üresen elküldeni
--Bug:{egy form elmentése után a main formot valamiért a tálcára helyezi}
--Tesztelés
+Ami mÃ©g hÃ¡tra van:
+-log bekÃ¶tÃ©se az Ã¶sszes funckiÃ³hoz. EgyelÅ‘re a loginba van csak
+-mÃ©g nincs lekezelve, hogy a formok input mezÅ‘it ne lehessen Ã¼resen elkÃ¼ldeni
+-TesztelÃ©s
