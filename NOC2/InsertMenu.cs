@@ -28,7 +28,13 @@ namespace NOC2
             string insertQuery = "INSERT INTO mainmenus (`menuName`,`parentId`,`active`) VALUES ('" + textBox1.Text + "','" + menu.sMenuId + "',1)";
             Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Menü feltöltve!");
-            this.Close();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            MenuList listForm = new MenuList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
     }
 }

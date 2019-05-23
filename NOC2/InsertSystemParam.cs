@@ -29,7 +29,13 @@ namespace NOC2
                 "('" + syskey + "','" + sysvalue + "')";
             Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Rendszerparaméter feltöltve!");
-            this.Close();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            SystemParamList listForm = new SystemParamList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
     }
 }

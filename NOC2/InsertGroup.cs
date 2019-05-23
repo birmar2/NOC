@@ -105,7 +105,13 @@ namespace NOC2
             }
 
             MessageBox.Show("Jogosultsági csoport feltöltve!");
-            this.Close();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            GroupList listForm = new GroupList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
     }
 }

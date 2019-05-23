@@ -46,10 +46,15 @@ namespace NOC2
                 Framework.MyGroupId = Convert.ToInt32(groupView[0]["group_id"]);
                 Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres bejelentkezés"), Framework.MyUserId);
                 this.Hide();
-                var frm = new Main();
+
+
+                Framework.mainForm = new Main();
+                Framework.mainForm.Show();
+
+                /*var frm = new Main();
                 frm.TopLevel = true;
                 frm.Closed += (s, args) => this.Close();
-                frm.Show();
+                frm.Show();*/
             }
             else
             {

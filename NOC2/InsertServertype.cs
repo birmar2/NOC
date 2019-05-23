@@ -23,7 +23,13 @@ namespace NOC2
             string insertQuery = "INSERT INTO servertypes (`servertypename`) VALUES ('"+ servertypename + "')";
             Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Szervertípus feltöltve!");
-            this.Close();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            ServertypeList listForm = new ServertypeList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
     }
 }

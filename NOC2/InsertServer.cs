@@ -59,7 +59,13 @@ namespace NOC2
                 "('"+ serverName + "','"+ servertype_id + "','"+ serverActive + "','"+ serverMemory + "','"+ serverDisk + "','"+ serverCpu + "','"+ serverOpsystem + "') ";
             Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Azonosítási szerver feltöltve!");
-            this.Close();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            ServerList listForm = new ServerList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
     }
 }

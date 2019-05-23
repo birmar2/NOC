@@ -42,8 +42,13 @@ namespace NOC2
 
                 if (e.ColumnIndex == 0)
                 {
+                    Framework.mainForm.panel1.Controls.Clear();
+
                     UpdateSystemParam updateForm = new UpdateSystemParam();
                     updateForm.sysparam = this;
+                    updateForm.TopLevel = false;
+                    updateForm.AutoScroll = true;
+                    Framework.mainForm.panel1.Controls.Add(updateForm);
                     updateForm.Show();
                 }
             }

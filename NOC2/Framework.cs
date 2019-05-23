@@ -13,6 +13,7 @@ namespace NOC2
         public static Connection db = new Connection();
         private static LogService logService = new LogService();
         public static Colors getColor = new Colors();
+        public static Main mainForm = null;
 
         private static string _myUsername = "";
         private static int _myUserId = 0;

@@ -74,7 +74,13 @@ namespace NOC2
                 "('"+ username + "','"+ Hash(password) + "','"+ group_id + "','"+ server_id + "')";
             Framework.db.RunQuery(insertQuery);
             MessageBox.Show("Felhasználó feltöltve!");
-            this.Close();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            userList listForm = new userList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
 
         private void InsertUser_Load(object sender, EventArgs e)

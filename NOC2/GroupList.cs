@@ -59,9 +59,12 @@ namespace NOC2
                 }
 
                 if (e.ColumnIndex == 1)//Update user
-                {
+                {Framework.mainForm.panel1.Controls.Clear();
                     UpdateGroup updateForm = new UpdateGroup();
                     updateForm.group = this;
+                    updateForm.TopLevel = false;
+                    updateForm.AutoScroll = true;
+                    Framework.mainForm.panel1.Controls.Add(updateForm);
                     updateForm.Show();
                 }
             }

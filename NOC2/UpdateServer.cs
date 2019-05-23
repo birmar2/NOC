@@ -92,7 +92,13 @@ namespace NOC2
                 "WHERE `serverid` =" + serverid;
             Framework.db.RunQuery(updateQuery);
             MessageBox.Show("Azonosítási szerver frissítve!");
-            this.Hide();
+
+            Framework.mainForm.panel1.Controls.Clear();
+            ServerList listForm = new ServerList();
+            listForm.TopLevel = false;
+            listForm.AutoScroll = true;
+            Framework.mainForm.panel1.Controls.Add(listForm);
+            listForm.Show();
         }
     }
 }

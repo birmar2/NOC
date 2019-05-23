@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace NOC2
 {
@@ -85,6 +86,12 @@ namespace NOC2
             comboBox2.SelectedIndex = selectedServerIndex;
         }
 
+        static string Hash(string input)
+        {
+            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(input));
+            return string.Concat(hash.Select(b => b.ToString("x2")));
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string username   = textBox1.Text;
@@ -95,14 +102,45 @@ namespace NOC2
             Server selectedServer = (Server)comboBox2.SelectedItem;
             string server_id = selectedServer.Value;
 
-            string updateQuery = "UPDATE `users` SET `username` = '" + username+ "', `group_id` = '" + group_id+ "', `server_id` = '" + server_id+ "' WHERE `userid` =" + userid;
-            Framework.db.RunQuery(updateQuery);
-            MessageBox.Show("Felhasználó frissítve!");
-            this.Close();
-            /*Main myForm = new Main();
-            myForm.TopLevel = true;
-            myForm.Refresh();
-            myForm.Show();*/
+            bool requiredError = false;
+            string err = "";
+            if (username == "")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
+
+            if (password != "" && (repassword != password))
+            {
+                err = "A két jelszó nem egyezik";
+                requiredError = true;
+            }
+
+            if (requiredError == false)
+            {
+                string updateQuery = "UPDATE `users` SET `username` = '" + username + "', `group_id` = '" + group_id + "', `server_id` = '" + server_id + "' WHERE `userid` =" + userid;
+                Framework.db.RunQuery(updateQuery);
+                MessageBox.Show("Felhasználó frissítve!");
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres felhasználó frissítés"), Convert.ToInt32(userid));
+
+                if (password!=""&&(repassword==password))
+                {
+                    string updatePwdQuery = "UPDATE `users` SET `password` = '" + Hash(password) + "'WHERE `userid` =" + userid;
+                    Framework.db.RunQuery(updatePwdQuery);
+                }
+
+                Framework.mainForm.panel1.Controls.Clear();
+                userList listForm = new userList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen felhasználó frissítés"), Convert.ToInt32(userid));
+                MessageBox.Show(err);
+            }
         }
     }
 }

@@ -92,6 +92,7 @@ namespace NOC2
 
         private void userList_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Clear();
             userList myForm = new userList();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
@@ -141,26 +142,42 @@ namespace NOC2
 
         private void newToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            InsertServertype form = new InsertServertype();
-            form.Show();
+            panel1.Controls.Clear();
+            InsertServertype myForm = new InsertServertype();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel1.Controls.Add(myForm);
+            myForm.Show();
         }
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            InsertServer form = new InsertServer();
-            form.Show();
+            panel1.Controls.Clear();
+            InsertServer myForm = new InsertServer();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel1.Controls.Add(myForm);
+            myForm.Show();
         }
 
         private void groupNew_Click(object sender, EventArgs e)
         {
-            InsertGroup form = new InsertGroup();
-            form.Show();
+            panel1.Controls.Clear();
+            InsertGroup myForm = new InsertGroup();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel1.Controls.Add(myForm);
+            myForm.Show();
         }
 
         private void userNew_Click(object sender, EventArgs e)
         {
-            InsertUser form = new InsertUser();
-            form.Show();
+            panel1.Controls.Clear();
+            InsertUser myForm = new InsertUser();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel1.Controls.Add(myForm);
+            myForm.Show();
         }
 
         private void listToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -175,8 +192,12 @@ namespace NOC2
 
         private void newToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            InsertSystemParam form = new InsertSystemParam();
-            form.Show();
+            panel1.Controls.Clear();
+            InsertSystemParam myForm = new InsertSystemParam();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel1.Controls.Add(myForm);
+            myForm.Show();
         }
     }
 }

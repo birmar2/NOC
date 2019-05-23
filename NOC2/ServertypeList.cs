@@ -60,9 +60,23 @@ namespace NOC2
 
                 if (e.ColumnIndex == 1)//Update user
                 {
+                    /*UpdateServertype updateForm = new UpdateServertype();
+                    updateForm.servertype = this;
+                    updateForm.Show();*/
+
+                    //Framework.mainForm.Close();
+
+                    Framework.mainForm.panel1.Controls.Clear();
+
                     UpdateServertype updateForm = new UpdateServertype();
                     updateForm.servertype = this;
+                    updateForm.TopLevel = false;
+                    updateForm.AutoScroll = true;
+                    Framework.mainForm.panel1.Controls.Add(updateForm);
                     updateForm.Show();
+
+
+                    
                 }
             }
         }

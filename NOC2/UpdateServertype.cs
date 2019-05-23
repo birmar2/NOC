@@ -36,10 +36,36 @@ namespace NOC2
         private void button1_Click(object sender, EventArgs e)
         {
             string servertypename = textBox1.Text;
-            string updateQuery = "UPDATE `servertypes` SET `servertypename` = '" + servertypename + "' WHERE `servertypeid` =" + servertypeid;
-            Framework.db.RunQuery(updateQuery);
-            MessageBox.Show("Szervertípus frissítve!");
-            this.Close();
+
+            bool requiredError = false;
+            if (servertypename == "") requiredError = true;
+
+            if (requiredError==false)
+            {
+                string updateQuery = "UPDATE `servertypes` SET `servertypename` = '" + servertypename + "' WHERE `servertypeid` =" + servertypeid;
+                Framework.db.RunQuery(updateQuery);
+                MessageBox.Show("Szervertípus frissítve!");
+
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres szervertípus frissítés"), Convert.ToInt32(servertypeid));
+
+                Framework.mainForm.panel1.Controls.Clear();
+                ServertypeList listForm = new ServertypeList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen szervertípus frissítés"), Convert.ToInt32(servertypeid));
+                MessageBox.Show("Minden mező kitöltése kötelező");
+            }
+        }
+
+        private void UpdateServertype_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }

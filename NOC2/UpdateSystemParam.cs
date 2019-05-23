@@ -38,10 +38,29 @@ namespace NOC2
             string syskey = textBox1.Text;
             string sysvalue = textBox2.Text;
 
-            string updateQuery = "UPDATE `systemparams` SET `sysvalue` = '" + sysvalue + "'WHERE `sysparamid` =" + sysparamid;
-            Framework.db.RunQuery(updateQuery);
-            MessageBox.Show("Rendszerparaméter frissítve!");
-            this.Close();
+            bool requiredError = false;
+            if (syskey == ""|| sysvalue == "") requiredError = true;
+
+            if (requiredError == false)
+            {
+                string updateQuery = "UPDATE `systemparams` SET `sysvalue` = '" + sysvalue + "'WHERE `sysparamid` =" + sysparamid;
+                Framework.db.RunQuery(updateQuery);
+                MessageBox.Show("Rendszerparaméter frissítve!");
+
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres rendszerparaméter szerkesztés"), Convert.ToInt32(sysparamid));
+
+                Framework.mainForm.panel1.Controls.Clear();
+                SystemParamList listForm = new SystemParamList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen rendszerparaméter szerkesztés"), Convert.ToInt32(sysparamid));
+                MessageBox.Show("Minden mező kitöltése kötelező");
+            }
         }
     }
 }
