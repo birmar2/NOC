@@ -21,8 +21,3 @@ pl.:Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres bejelen
 MűveletId lekérése:
 Operation metódusnak kell átadni paraméterként a művelet nevét
 pl.:Framework.Operation("Sikeres bejelentkezés")
-
-Ami még hátra van:
--log bekötése az összes funckióhoz. Egyelőre a loginba van csak
--még nincs lekezelve, hogy a formok input mezőit ne lehessen üresen elküldeni
--Tesztelés
