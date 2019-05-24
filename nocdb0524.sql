@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2019. Máj 18. 19:33
+-- Létrehozás ideje: 2019. Máj 24. 18:27
 -- Kiszolgáló verziója: 5.7.24
 -- PHP verzió: 7.2.14
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `groupid` int(11) NOT NULL AUTO_INCREMENT,
   `groupName` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`groupid`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `groups`
@@ -56,16 +56,16 @@ CREATE TABLE IF NOT EXISTS `groupsmenus` (
   `group_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `groupsmenus`
 --
 
 INSERT INTO `groupsmenus` (`id`, `group_id`, `menu_id`) VALUES
-(15, 2, 3),
-(14, 2, 2),
-(13, 2, 1);
+(1, 2, 3),
+(2, 2, 2),
+(3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -81,50 +81,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `record_id` int(11) NOT NULL,
   `inserttime` datetime NOT NULL,
   PRIMARY KEY (`logid`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `log`
---
-
-INSERT INTO `log` (`logid`, `user_id`, `operation_id`, `record_id`, `inserttime`) VALUES
-(1, 1, 1, 0, '2019-05-17 20:48:48'),
-(2, 1, 1, 0, '2019-05-17 21:24:22'),
-(3, 1, 1, 0, '2019-05-17 21:41:11'),
-(4, 1, 1, 0, '2019-05-17 21:41:47'),
-(5, 3, 1, 0, '2019-05-17 21:42:08'),
-(6, 1, 1, 0, '2019-05-17 21:50:05'),
-(7, 1, 1, 0, '2019-05-17 21:53:30'),
-(8, 1, 1, 0, '2019-05-17 21:55:37'),
-(9, 3, 1, 0, '2019-05-17 21:55:51'),
-(10, 1, 1, 0, '2019-05-17 21:58:37'),
-(11, 1, 1, 0, '2019-05-18 18:33:31'),
-(12, 1, 1, 0, '2019-05-18 18:34:23'),
-(13, 1, 1, 0, '2019-05-18 18:35:04'),
-(14, 1, 1, 0, '2019-05-18 18:36:24'),
-(15, 1, 1, 0, '2019-05-18 18:39:50'),
-(16, 1, 1, 0, '2019-05-18 18:41:12'),
-(17, 1, 1, 0, '2019-05-18 18:48:11'),
-(18, 1, 1, 0, '2019-05-18 18:48:29'),
-(19, 1, 1, 1, '2019-05-18 19:01:47'),
-(20, 1, 1, 1, '2019-05-18 19:03:31'),
-(21, 1, 1, 1, '2019-05-18 19:05:18'),
-(22, 1, 1, 1, '2019-05-18 19:05:48'),
-(23, 1, 1, 1, '2019-05-18 19:29:46'),
-(24, 1, 1, 1, '2019-05-18 19:40:07'),
-(25, 1, 1, 1, '2019-05-18 19:53:31'),
-(26, 1, 1, 1, '2019-05-18 20:59:10'),
-(27, 1, 1, 1, '2019-05-18 21:02:12'),
-(28, 1, 1, 1, '2019-05-18 21:10:44'),
-(29, 1, 1, 1, '2019-05-18 21:12:09'),
-(30, 1, 1, 1, '2019-05-18 21:13:46'),
-(31, 1, 1, 1, '2019-05-18 21:14:09'),
-(32, 1, 1, 1, '2019-05-18 21:25:06'),
-(33, 1, 1, 1, '2019-05-18 21:25:36'),
-(34, 1, 1, 1, '2019-05-18 21:26:24'),
-(35, 1, 1, 1, '2019-05-18 21:28:16'),
-(36, 1, 1, 1, '2019-05-18 21:29:18'),
-(37, 1, 1, 1, '2019-05-18 21:31:41');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -139,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `mainmenus` (
   `parentId` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`menuId`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `mainmenus`
@@ -163,7 +120,8 @@ INSERT INTO `mainmenus` (`menuId`, `menuName`, `parentId`, `active`) VALUES
 (15, 'newToolStripMenuItem2', 13, 1),
 (16, 'systemparametersToolStripMenuItem', 1, 1),
 (17, 'listToolStripMenuItem3', 16, 1),
-(18, 'newToolStripMenuItem3', 16, 1);
+(18, 'newToolStripMenuItem3', 16, 1),
+(19, 'logToolStripMenuItem', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -177,14 +135,41 @@ CREATE TABLE IF NOT EXISTS `operations` (
   `operationname` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`operationid`),
   UNIQUE KEY `operationid` (`operationid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `operations`
 --
 
 INSERT INTO `operations` (`operationid`, `operationname`) VALUES
-(1, 'Sikeres bejelentkezés');
+(1, 'Sikeres bejelentkezés'),
+(2, 'Sikeres szervertípus frissítés'),
+(3, 'Sikertelen szervertípus frissítés'),
+(4, 'Sikeres rendszerparaméter szerkesztés'),
+(5, 'Sikertelen rendszerparaméter szerkesztés'),
+(6, 'Sikeres felhasználó frissítés'),
+(7, 'Sikertelen felhasználó frissítés'),
+(8, 'Sikeres jogosultsági csoport feltöltés'),
+(9, 'Sikertelen jogosultsági csoport feltöltés'),
+(10, 'Sikeres menü feltöltés'),
+(11, 'Sikertelen menü feltöltés'),
+(12, 'Sikeres szerver feltöltés'),
+(13, 'Sikertelen szerver feltöltés'),
+(14, 'Sikeres szervertípus feltöltés'),
+(15, 'Sikertelen szervertípus feltöltés'),
+(16, 'Sikeres rendszerparaméter feltöltés'),
+(17, 'Sikertelen rendszerparaméter feltöltés'),
+(18, 'Sikeres felhasználó létrehozás'),
+(19, 'Sikertelen felhasználó létrehozás'),
+(20, 'Sikeres jogosultsági csoport frissítés'),
+(21, 'Sikertelen jogosultsági csoport frissítés'),
+(22, 'Sikeres szerver frissítés'),
+(23, 'Sikertelen szerver frissítés'),
+(24, 'Felhasználó törölve'),
+(25, 'Szervertípus törölve'),
+(26, 'Jogosultsági csoport törölve'),
+(27, 'Menü törölve'),
+(28, 'Szerver törölve');
 
 -- --------------------------------------------------------
 
@@ -203,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
   `servercpu` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `serveropsystem` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`serverid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `servers`
@@ -212,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
 INSERT INTO `servers` (`serverid`, `servername`, `servertype_id`, `serveractive`, `servermemory`, `serverdisk`, `servercpu`, `serveropsystem`) VALUES
 (1, 'Szerver 1. teszt', 1, 1, 1024, '512', 'Core I5', 'Linux'),
 (2, 'Új szerver', 2, 1, 256, '1', 'P4', 'Windows Xp'),
-(3, 'dasdasd', 1, 0, 102, '012', 'das', 'asasda');
+(3, 'Teszt', 1, 0, 102, '012', 'das', 'asasda');
 
 -- --------------------------------------------------------
 
@@ -235,7 +220,7 @@ INSERT INTO `servertypes` (`servertypeid`, `servertypename`) VALUES
 (1, 'Helyi azonosítás'),
 (2, 'LDAP (Microsoft AD)'),
 (4, 'Radius'),
-(5, 'SQL');
+(5, 'SQL teszt');
 
 -- --------------------------------------------------------
 
@@ -274,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `group_id` int(11) NOT NULL,
   `server_id` int(11) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `users`
@@ -282,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`userid`, `username`, `password`, `group_id`, `server_id`) VALUES
 (1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 1),
-(3, 'letesztelem', '6241732a2b29883c46c48d55ffef215a60eb4988', 2, 2);
+(3, 'letesztelem', '6241732a2b29883c46c48d55ffef215a60eb4988', 2, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -25,16 +25,36 @@ namespace NOC2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO mainmenus (`menuName`,`parentId`,`active`) VALUES ('" + textBox1.Text + "','" + menu.sMenuId + "',1)";
-            Framework.db.RunQuery(insertQuery);
-            MessageBox.Show("Menü feltöltve!");
+            bool requiredError = false;
+            string err = "";
+            if (textBox1.Text == "")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
 
-            Framework.mainForm.panel1.Controls.Clear();
-            MenuList listForm = new MenuList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+            if (requiredError == false)
+            {
+                string insertQuery = "INSERT INTO mainmenus (`menuName`,`parentId`,`active`) VALUES ('" + textBox1.Text + "','" + menu.sMenuId + "',1)";
+                Framework.db.RunQuery(insertQuery);
+
+                int lastId = Framework.LastInsertId();
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres menü feltöltés"), lastId);
+
+                MessageBox.Show("Menü feltöltve!");
+
+                Framework.mainForm.panel1.Controls.Clear();
+                MenuList listForm = new MenuList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen menü feltöltés"), 0);
+                MessageBox.Show(err);
+            }
         }
     }
 }

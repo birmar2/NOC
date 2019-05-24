@@ -82,3 +82,4 @@ C:\Suli\NOCDUMP\NOC\NOC2\obj\Debug\NOC2.csproj.CoreCompileInputs.cache
 C:\Suli\NOCDUMP\NOC\NOC2\obj\Debug\NOC2.csproj.CopyComplete
 C:\Suli\NOCDUMP\NOC\NOC2\obj\Debug\NOC2.exe
 C:\Suli\NOCDUMP\NOC\NOC2\obj\Debug\NOC2.pdb
+C:\Suli\NOCDUMP\NOC\NOC2\obj\Debug\NOC2.LogList.resources

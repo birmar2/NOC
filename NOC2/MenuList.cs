@@ -82,8 +82,12 @@ namespace NOC2
         {
             if (textBox1.Text != "")
             {
+                Framework.mainForm.panel1.Controls.Clear();
                 InsertMenu insertForm = new InsertMenu();
                 insertForm.menu = this;
+                insertForm.TopLevel = false;
+                insertForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(insertForm);
                 insertForm.Show();
             }
         }
@@ -95,6 +99,7 @@ namespace NOC2
                 //MessageBox.Show(user_id);
                 string deleteQuery = "DELETE FROM `mainmenus` WHERE `menuId` = " + selectedMenuId;
                 Framework.db.RunQuery(deleteQuery);
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Menü törölve"), Convert.ToInt32(selectedMenuId));
                 MessageBox.Show("Menü törölve!");
                 treeView1.SelectedNode.Remove();
             }

@@ -55,6 +55,7 @@ namespace NOC2
                         string deleteQuery = "DELETE FROM `servers` WHERE `serverid` = " + server_id;
                         Framework.db.RunQuery(deleteQuery);
                         MessageBox.Show("Azonosítási szerver törölve!");
+                        Framework.insertLog(Framework.MyUserId, Framework.Operation("Szerver törölve"), Convert.ToInt32(server_id));
                     }
                 }
 

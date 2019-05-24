@@ -55,6 +55,7 @@ namespace NOC2
                         string deleteQuery = "DELETE FROM `servertypes` WHERE `servertypeid` = " + servertype_id;
                         Framework.db.RunQuery(deleteQuery);
                         MessageBox.Show("Szervertípus törölve!");
+                        Framework.insertLog(Framework.MyUserId, Framework.Operation("Szervertípus törölve"), Convert.ToInt32(servertype_id));
                     }
                 }
 

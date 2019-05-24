@@ -22,20 +22,39 @@ namespace NOC2
             string syskey = textBox1.Text;
             string sysvalue = textBox2.Text;
 
-            string insertQuery = "INSERT INTO " +
+            bool requiredError = false;
+            string err = "";
+            if (syskey == ""|| sysvalue=="")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
+
+            if (requiredError == false)
+            {
+                string insertQuery = "INSERT INTO " +
                 "systemparams " +
                 "(`syskey`,`sysvalue`) " +
                 "VALUES " +
                 "('" + syskey + "','" + sysvalue + "')";
-            Framework.db.RunQuery(insertQuery);
-            MessageBox.Show("Rendszerparaméter feltöltve!");
+                Framework.db.RunQuery(insertQuery);
+                MessageBox.Show("Rendszerparaméter feltöltve!");
 
-            Framework.mainForm.panel1.Controls.Clear();
-            SystemParamList listForm = new SystemParamList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+                int lastId = Framework.LastInsertId();
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres rendszerparaméter feltöltés"), lastId);
+
+                Framework.mainForm.panel1.Controls.Clear();
+                SystemParamList listForm = new SystemParamList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen rendszerparaméter feltöltés"), 0);
+                MessageBox.Show(err);
+            }
         }
     }
 }

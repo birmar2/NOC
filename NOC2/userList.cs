@@ -56,6 +56,7 @@ namespace NOC2
                         string deleteQuery = "DELETE FROM `users` WHERE `userid` = "+ user_id;
                         Framework.db.RunQuery(deleteQuery);
                         MessageBox.Show("Felhasználó törölve!");
+                        Framework.insertLog(Framework.MyUserId, Framework.Operation("Felhasználó törölve"), Convert.ToInt32(user_id));
                     }
                 }
 

@@ -95,26 +95,44 @@ namespace NOC2
         {
             string groupName = textBox1.Text;
 
-            string updateQuery = "UPDATE `groups` SET `groupName` = '" + groupName + "' WHERE `groupid` =" + groupid;
-            Framework.db.RunQuery(updateQuery);
-
-            string insertQuery = "";
-            string deleteQuery = "DELETE FROM groupsmenus WHERE `group_id` =" + groupid;
-            Framework.db.RunQuery(deleteQuery);
-            foreach (string menu_id in selectedMenus)
+            bool requiredError = false;
+            string err = "";
+            if (groupName == "")
             {
-                insertQuery = "INSERT INTO groupsmenus (`group_id`,`menu_id`) VALUES ('"+ groupid + "','"+ menu_id + "')";
-                Framework.db.RunQuery(insertQuery);
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
             }
 
-            MessageBox.Show("Jogosultsági csoport frissítve!");
+            if (requiredError == false)
+            {
+                string updateQuery = "UPDATE `groups` SET `groupName` = '" + groupName + "' WHERE `groupid` =" + groupid;
+                Framework.db.RunQuery(updateQuery);
 
-            Framework.mainForm.panel1.Controls.Clear();
-            GroupList listForm = new GroupList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+                string insertQuery = "";
+                string deleteQuery = "DELETE FROM groupsmenus WHERE `group_id` =" + groupid;
+                Framework.db.RunQuery(deleteQuery);
+                foreach (string menu_id in selectedMenus)
+                {
+                    insertQuery = "INSERT INTO groupsmenus (`group_id`,`menu_id`) VALUES ('" + groupid + "','" + menu_id + "')";
+                    Framework.db.RunQuery(insertQuery);
+                }
+
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres jogosultsági csoport frissítés"), Convert.ToInt32(groupid));
+
+                MessageBox.Show("Jogosultsági csoport frissítve!");
+
+                Framework.mainForm.panel1.Controls.Clear();
+                GroupList listForm = new GroupList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen jogosultsági csoport frissítés"), Convert.ToInt32(groupid));
+                MessageBox.Show(err);
+            }
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)

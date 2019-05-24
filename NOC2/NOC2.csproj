@@ -57,6 +57,12 @@
     <Compile Include="InsertSystemParam.Designer.cs">
       <DependentUpon>InsertSystemParam.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogList.Designer.cs">
+      <DependentUpon>LogList.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogService.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="GroupList.cs">
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogList.resx">
+      <DependentUpon>LogList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuList.resx">
       <DependentUpon>MenuList.cs</DependentUpon>

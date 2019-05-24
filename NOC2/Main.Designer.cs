@@ -52,6 +52,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,7 +79,8 @@
             this.systemGroups,
             this.menusToolStripMenuItem,
             this.serversToolStripMenuItem,
-            this.systemparametersToolStripMenuItem});
+            this.systemparametersToolStripMenuItem,
+            this.logToolStripMenuItem});
             this.mainSystem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mainSystem.Name = "mainSystem";
             this.mainSystem.Size = new System.Drawing.Size(80, 23);
@@ -146,12 +148,14 @@
             this.menusToolStripMenuItem.Name = "menusToolStripMenuItem";
             this.menusToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
             this.menusToolStripMenuItem.Text = "Menürendszer (modulok)";
+            this.menusToolStripMenuItem.Visible = false;
             // 
             // listToolStripMenuItem
             // 
             this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.listToolStripMenuItem.Text = "Lista";
+            this.listToolStripMenuItem.Visible = false;
             this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
             // 
             // serversToolStripMenuItem
@@ -163,19 +167,22 @@
             this.serversToolStripMenuItem.Name = "serversToolStripMenuItem";
             this.serversToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
             this.serversToolStripMenuItem.Text = "Szerverek";
+            this.serversToolStripMenuItem.Visible = false;
             // 
             // listToolStripMenuItem1
             // 
             this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
-            this.listToolStripMenuItem1.Size = new System.Drawing.Size(171, 24);
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
             this.listToolStripMenuItem1.Text = "Lista";
+            this.listToolStripMenuItem1.Visible = false;
             this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
             // 
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(171, 24);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
             this.newToolStripMenuItem1.Text = "Új";
+            this.newToolStripMenuItem1.Visible = false;
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
             // servertypesToolStripMenuItem
@@ -184,21 +191,24 @@
             this.listToolStripMenuItem2,
             this.newToolStripMenuItem2});
             this.servertypesToolStripMenuItem.Name = "servertypesToolStripMenuItem";
-            this.servertypesToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.servertypesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.servertypesToolStripMenuItem.Text = "Szervertípusok";
+            this.servertypesToolStripMenuItem.Visible = false;
             // 
             // listToolStripMenuItem2
             // 
             this.listToolStripMenuItem2.Name = "listToolStripMenuItem2";
-            this.listToolStripMenuItem2.Size = new System.Drawing.Size(109, 24);
+            this.listToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
             this.listToolStripMenuItem2.Text = "Lista";
+            this.listToolStripMenuItem2.Visible = false;
             this.listToolStripMenuItem2.Click += new System.EventHandler(this.listToolStripMenuItem2_Click);
             // 
             // newToolStripMenuItem2
             // 
             this.newToolStripMenuItem2.Name = "newToolStripMenuItem2";
-            this.newToolStripMenuItem2.Size = new System.Drawing.Size(109, 24);
+            this.newToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
             this.newToolStripMenuItem2.Text = "Új";
+            this.newToolStripMenuItem2.Visible = false;
             this.newToolStripMenuItem2.Click += new System.EventHandler(this.newToolStripMenuItem2_Click);
             // 
             // systemparametersToolStripMenuItem
@@ -209,19 +219,22 @@
             this.systemparametersToolStripMenuItem.Name = "systemparametersToolStripMenuItem";
             this.systemparametersToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
             this.systemparametersToolStripMenuItem.Text = "Rendszerparaméterek";
+            this.systemparametersToolStripMenuItem.Visible = false;
             // 
             // listToolStripMenuItem3
             // 
             this.listToolStripMenuItem3.Name = "listToolStripMenuItem3";
-            this.listToolStripMenuItem3.Size = new System.Drawing.Size(109, 24);
+            this.listToolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
             this.listToolStripMenuItem3.Text = "Lista";
+            this.listToolStripMenuItem3.Visible = false;
             this.listToolStripMenuItem3.Click += new System.EventHandler(this.listToolStripMenuItem3_Click);
             // 
             // newToolStripMenuItem3
             // 
             this.newToolStripMenuItem3.Name = "newToolStripMenuItem3";
-            this.newToolStripMenuItem3.Size = new System.Drawing.Size(109, 24);
+            this.newToolStripMenuItem3.Size = new System.Drawing.Size(180, 24);
             this.newToolStripMenuItem3.Text = "Új";
+            this.newToolStripMenuItem3.Visible = false;
             this.newToolStripMenuItem3.Click += new System.EventHandler(this.newToolStripMenuItem3_Click);
             // 
             // panel1
@@ -258,6 +271,14 @@
             this.label1.Size = new System.Drawing.Size(156, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bejelentkezve, mint {username}";
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
+            this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Visible = false;
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -307,5 +328,6 @@
         private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem3;
         public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
     }
 }

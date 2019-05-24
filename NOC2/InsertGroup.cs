@@ -87,31 +87,50 @@ namespace NOC2
         {
             string groupName = textBox1.Text;
 
-            string insertQuery = "INSERT INTO `groups` (`groupName`) VALUES ('"+ groupName + "')";
-            Framework.db.RunQuery(insertQuery);
-
-            string getGroupsQuery = "SELECT * FROM groups WHERE groupName = '" + groupName + "' ORDER BY groupid DESC";
-            var groupTable = Framework.db.GetData(getGroupsQuery);
-            DataView groupView = new DataView(groupTable);
-            int countRows = Int32.Parse(groupView.Count.ToString());
-
-            string groupid = groupView[0]["groupid"].ToString();
-
-            string insertQueryJoin = "";
-            foreach (string menu_id in selectedMenus)
+            bool requiredError = false;
+            string err = "";
+            if (groupName == "")
             {
-                insertQueryJoin = "INSERT INTO groupsmenus (`group_id`,`menu_id`) VALUES ('" + groupid + "','" + menu_id + "')";
-                Framework.db.RunQuery(insertQueryJoin);
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
             }
 
-            MessageBox.Show("Jogosultsági csoport feltöltve!");
+            if (requiredError == false)
+            {
+                string insertQuery = "INSERT INTO `groups` (`groupName`) VALUES ('" + groupName + "')";
+                Framework.db.RunQuery(insertQuery);
 
-            Framework.mainForm.panel1.Controls.Clear();
-            GroupList listForm = new GroupList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+                int lastId = Framework.LastInsertId();
+
+                string getGroupsQuery = "SELECT * FROM groups WHERE groupName = '" + groupName + "' ORDER BY groupid DESC";
+                var groupTable = Framework.db.GetData(getGroupsQuery);
+                DataView groupView = new DataView(groupTable);
+                int countRows = Int32.Parse(groupView.Count.ToString());
+
+                string groupid = groupView[0]["groupid"].ToString();
+
+                string insertQueryJoin = "";
+                foreach (string menu_id in selectedMenus)
+                {
+                    insertQueryJoin = "INSERT INTO groupsmenus (`group_id`,`menu_id`) VALUES ('" + groupid + "','" + menu_id + "')";
+                    Framework.db.RunQuery(insertQueryJoin);
+                }
+
+                MessageBox.Show("Jogosultsági csoport feltöltve!");
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres jogosultsági csoport feltöltés"), lastId);
+
+                Framework.mainForm.panel1.Controls.Clear();
+                GroupList listForm = new GroupList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen jogosultsági csoport feltöltés"), 0);
+                MessageBox.Show(err);
+            }
         }
     }
 }

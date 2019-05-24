@@ -52,20 +52,39 @@ namespace NOC2
             string serverCpu = textBox4.Text;
             string serverOpsystem = textBox5.Text;
 
-            string insertQuery = "INSERT INTO " +
+            bool requiredError = false;
+            string err = "";
+            if (serverName == ""|| serverMemory == "" || serverDisk == "" || serverCpu == "" || serverOpsystem == "")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
+
+            if (requiredError == false)
+            {
+                string insertQuery = "INSERT INTO " +
                 "servers " +
                 "(`servername`,`servertype_id`,`serveractive`,`servermemory`,`serverdisk`,`servercpu`,`serveropsystem`) " +
                 "VALUES " +
-                "('"+ serverName + "','"+ servertype_id + "','"+ serverActive + "','"+ serverMemory + "','"+ serverDisk + "','"+ serverCpu + "','"+ serverOpsystem + "') ";
-            Framework.db.RunQuery(insertQuery);
-            MessageBox.Show("Azonosítási szerver feltöltve!");
+                "('" + serverName + "','" + servertype_id + "','" + serverActive + "','" + serverMemory + "','" + serverDisk + "','" + serverCpu + "','" + serverOpsystem + "') ";
+                Framework.db.RunQuery(insertQuery);
+                MessageBox.Show("Azonosítási szerver feltöltve!");
 
-            Framework.mainForm.panel1.Controls.Clear();
-            ServerList listForm = new ServerList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+                int lastId = Framework.LastInsertId();
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres szerver feltöltés"), lastId);
+
+                Framework.mainForm.panel1.Controls.Clear();
+                ServerList listForm = new ServerList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen szerver feltöltés"), 0);
+                MessageBox.Show(err);
+            }
         }
     }
 }

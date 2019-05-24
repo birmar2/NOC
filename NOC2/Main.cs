@@ -12,13 +12,15 @@ namespace NOC2
 {
     public partial class Main : Form
     {
-        int groupId = Framework.MyGroupId;
+        int groupId = 0;
+        //MessageBox.Show(groupId.ToString());
         public Main()
         {
             InitializeComponent();
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            groupId = Framework.MyGroupId;
             label1.Text = "Bejelentkezve, mint "+Framework.MyUserName;
             //var dbMenus = new Connection();
             /*
@@ -194,6 +196,16 @@ namespace NOC2
         {
             panel1.Controls.Clear();
             InsertSystemParam myForm = new InsertSystemParam();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel1.Controls.Add(myForm);
+            myForm.Show();
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            LogList myForm = new LogList();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             panel1.Controls.Add(myForm);

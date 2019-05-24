@@ -67,20 +67,45 @@ namespace NOC2
             Server selectedServer = (Server)comboBox2.SelectedItem;
             string server_id = selectedServer.Value;
 
-            string insertQuery = "INSERT INTO " +
+            bool requiredError = false;
+            string err = "";
+            if (username == ""|| password==""|| repassword=="")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
+
+            if (password != "" && (repassword != password))
+            {
+                err = "A két jelszó nem egyezik";
+                requiredError = true;
+            }
+
+            if (requiredError == false)
+            {
+                string insertQuery = "INSERT INTO " +
                 "users " +
                 "(`username`,`password`,`group_id`,`server_id`) " +
                 "VALUES " +
-                "('"+ username + "','"+ Hash(password) + "','"+ group_id + "','"+ server_id + "')";
-            Framework.db.RunQuery(insertQuery);
-            MessageBox.Show("Felhasználó feltöltve!");
+                "('" + username + "','" + Hash(password) + "','" + group_id + "','" + server_id + "')";
+                Framework.db.RunQuery(insertQuery);
+                MessageBox.Show("Felhasználó feltöltve!");
 
-            Framework.mainForm.panel1.Controls.Clear();
-            userList listForm = new userList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+                int lastId = Framework.LastInsertId();
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres felhasználó létrehozás"), lastId);
+
+                Framework.mainForm.panel1.Controls.Clear();
+                userList listForm = new userList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen felhasználó létrehozás"), 0);
+                MessageBox.Show(err);
+            }
         }
 
         private void InsertUser_Load(object sender, EventArgs e)

@@ -20,16 +20,36 @@ namespace NOC2
         private void button1_Click(object sender, EventArgs e)
         {
             string servertypename = textBox1.Text;
-            string insertQuery = "INSERT INTO servertypes (`servertypename`) VALUES ('"+ servertypename + "')";
-            Framework.db.RunQuery(insertQuery);
-            MessageBox.Show("Szervertípus feltöltve!");
 
-            Framework.mainForm.panel1.Controls.Clear();
-            ServertypeList listForm = new ServertypeList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+            bool requiredError = false;
+            string err = "";
+            if (servertypename == "")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
+
+            if (requiredError == false)
+            {
+                string insertQuery = "INSERT INTO servertypes (`servertypename`) VALUES ('" + servertypename + "')";
+                Framework.db.RunQuery(insertQuery);
+                MessageBox.Show("Szervertípus feltöltve!");
+
+                int lastId = Framework.LastInsertId();
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres szervertípus feltöltés"), lastId);
+
+                Framework.mainForm.panel1.Controls.Clear();
+                ServertypeList listForm = new ServertypeList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen szervertípus feltöltés"), 0);
+                MessageBox.Show(err);
+            }
         }
     }
 }

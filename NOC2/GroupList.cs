@@ -52,9 +52,10 @@ namespace NOC2
                     if (MessageBox.Show("Biztosan törlöd?", "CONFIRM", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         //MessageBox.Show(user_id);
-                        string deleteQuery = "DELETE FROM `groups` WHERE `groupid` = " + user_id;
+                        string deleteQuery = "DELETE FROM `groups` WHERE `groupid` = " + groupId;
                         Framework.db.RunQuery(deleteQuery);
                         MessageBox.Show("Jogosultsági csoport törölve!");
+                        Framework.insertLog(Framework.MyUserId, Framework.Operation("Jogosultsági csoport törölve"), groupId);
                     }
                 }
 

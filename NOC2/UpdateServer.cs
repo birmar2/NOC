@@ -80,7 +80,17 @@ namespace NOC2
             string serverCpu      = textBox4.Text;
             string serverOpsystem = textBox5.Text;
 
-            string updateQuery = "UPDATE `servers` " +
+            bool requiredError = false;
+            string err = "";
+            if (serverName == "" || serverMemory=="" || serverDisk == "" || serverCpu == "" || serverOpsystem == "")
+            {
+                err = "Minden mező kitöltése kötelező";
+                requiredError = true;
+            }
+
+            if (requiredError == false)
+            {
+                string updateQuery = "UPDATE `servers` " +
                 "SET " +
                 "`servername` = '" + serverName + "', " +
                 "`servertype_id` = '" + servertype_id + "', " +
@@ -90,15 +100,23 @@ namespace NOC2
                 "`servercpu` = '" + serverCpu + "', " +
                 "`serveropsystem` = '" + serverOpsystem + "' " +
                 "WHERE `serverid` =" + serverid;
-            Framework.db.RunQuery(updateQuery);
-            MessageBox.Show("Azonosítási szerver frissítve!");
+                Framework.db.RunQuery(updateQuery);
+                MessageBox.Show("Azonosítási szerver frissítve!");
 
-            Framework.mainForm.panel1.Controls.Clear();
-            ServerList listForm = new ServerList();
-            listForm.TopLevel = false;
-            listForm.AutoScroll = true;
-            Framework.mainForm.panel1.Controls.Add(listForm);
-            listForm.Show();
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikeres szerver frissítés"), Convert.ToInt32(serverid));
+
+                Framework.mainForm.panel1.Controls.Clear();
+                ServerList listForm = new ServerList();
+                listForm.TopLevel = false;
+                listForm.AutoScroll = true;
+                Framework.mainForm.panel1.Controls.Add(listForm);
+                listForm.Show();
+            }
+            else
+            {
+                Framework.insertLog(Framework.MyUserId, Framework.Operation("Sikertelen szerver frissítés"), Convert.ToInt32(serverid));
+                MessageBox.Show(err);
+            }
         }
     }
 }

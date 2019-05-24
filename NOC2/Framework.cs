@@ -87,5 +87,14 @@ namespace NOC2
             return sysvalue;
         }
 
+        public static int LastInsertId()
+        {
+            string getLastQuery = "SELECT LAST_INSERT_ID() as id;";
+            var gT = Framework.db.GetData(getLastQuery);
+            DataView gW = new DataView(gT);
+            int lastId = Convert.ToInt32(gW[0]["id"].ToString());
+            return lastId;
+        }
+
     }
 }
